@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #00b4db, #0083b0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .search {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        #location {
+            flex-grow: 1;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+        }
+
+        #search-btn {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: #0083b0;
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #search-btn:hover {
+            background-color: #00b4db;
+        }
+
+        #weather-info {
+            text-align: center;
+        }
+
+        .weather-icon {
+            width: 100px;
+            height: 100px;
+            margin: 1rem auto;
+        }
+
+        .temperature {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1rem;
+        }
+
+        .detail {
+            text-align: center;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .detail-value {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Weather Forecast</h1>
+        <div class="search">
+            <input type="text" id="location" placeholder="Enter location">
+            <button id="search-btn">Search</button>
+        </div>
+        <div id="weather-info"></div>
+    </div>
+
+    <script>
+        const apiKey = '8DYY3WUDXWKLVDEP2GP4DP8R9';
+        const searchBtn = document.getElementById('search-btn');
+        const locationInput = document.getElementById('location');
+        const weatherInfo = document.getElementById('weather-info');
+
+        searchBtn.addEventListener('click', getWeather);
+        locationInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                getWeather();
+            }
+        });
+
+        function getWeather() {
+            const location = locationInput.value;
+            if (!location) return;
+
+            const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${apiKey}&contentType=json`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    displayWeather(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    weatherInfo.innerHTML = '<p>Enter correct location</p>';
+                });
+        }
+
+        function displayWeather(data) {
+            const currentConditions = data.currentConditions;
+            const iconCode = currentConditions.icon;
+            const temperature = Math.round(currentConditions.temp);
+            const description = currentConditions.conditions;
+            const humidity = currentConditions.humidity;
+            const windSpeed = Math.round(currentConditions.windspeed);
+
+            weatherInfo.innerHTML = `
+                <img class="weather-icon" src="https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/2nd%20Set%20-%20Color/${iconCode}.png" alt="${description}">
+                <div class="temperature">${temperature}°C</div>
+                <div class="description">${description}</div>
+                <div class="details">
+                    <div class="detail">
+                        <div class="detail-label">Humidity</div>
+                        <div class="detail-value">${humidity}%</div>
+                    </div>
+                    <div class="detail">
+                        <div class="detail-label">Wind Speed</div>
+                        <div class="detail-value">${windSpeed} km/h</div>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+
+</html>
