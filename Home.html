@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Risk Prediction</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+
+        /* Dropdown Menu for Ongoing Projects */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            text-align: left;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px 20px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .feature {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Demo Section */
+        .demo {
+            padding: 40px 20px;
+            background: #e3e3e3;
+        }
+
+        /* Call to Action */
+        .cta {
+            padding: 50px 20px;
+            background: #0073e6;
+            color: white;
+        }
+
+        /* Buttons */
+        .cta-button, .nav-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover, .nav-btn:hover {
+            background: #c0392b;
+            transform: scale(1.05);
+        }
+
+        /* Form Submit Button */
+        button[type="submit"] {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button[type="submit"]:hover {
+            background: #219150;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2>AI Risk Prediction</h2>
+        <div class="nav-links">
+            <a href="#" class="nav-btn">Add Project</a>
+
+            <div class="dropdown">
+                <a href="#" class="nav-btn">Ongoing Projects ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">🚆 Metro Project</a>
+                    <a href="#">🛣️ Highway Project</a>
+                    <a href="#">✈️ Airport Construction</a>
+                    <a href="#">🏗️ Smart City Development</a>
+                    <a href="#">🏢 Commercial Complex</a>
+                </div>
+            </div>
+
+            <a href="#" class="nav-btn">Resources</a>
+            <a href="#" class="nav-btn">Login / Signup</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>AI-Powered Risk Prediction for Large-Scale Construction</h1>
+        <p>Minimizing Delays, Optimizing Resources, and Enhancing Efficiency with AI & ML</p>
+        <a href="#features" class="cta-button">Explore Features</a>
+    </header>
+
+    <!-- Key Features Section -->
+    <section class="features" id="features">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+            <a href="risk_analysis.html" class="feature">🔍 Predictive Risk Analysis</a>
+            <a href="#" class="feature">📦 Supply Chain Optimization</a>
+            <a href="equipment_monitoring.html" class="feature">⚙️ Automated Equipment Monitoring</a>
+            <a href="project_insights.html" class="feature">📊 Real-Time Project Insights</a>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo">
+        <h2>Test Our AI Model</h2>
+        <form>
+            <label for="project-data">Enter Project Data:</label>
+            <input type="text" id="project-data" placeholder="e.g., Workforce, Equipment...">
+            <button type="submit">Predict Risk</button>
+        </form>
+        <p id="prediction-result"></p>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>🕒 Reduces delays by 30-40%</li>
+            <li>💰 Cuts costs by 20-25%</li>
+            <li>📡 AI-powered real-time decision-making</li>
+            <li>🚀 Scalable for metro rail, highways, smart city projects</li>
+        </ul>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Industry Experts Say</h2>
+        <p>"This AI model helped optimize labor planning and reduce equipment downtime."</p>
+    </section>
+
+    <!-- Call to Action -->
+    <footer class="cta">
+        <h2>Get Started Today</h2>
+        <a href="#demo" class="cta-button">Test Our AI Model</a>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            const result = document.getElementById("prediction-result");
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+                result.textContent = "Predicted Risk: High, Estimated Delay: 15 days";
+                result.style.color = "#0073e6";
+            });
+
+            // New code for opening feature HTML files
+            const featureLinks = document.querySelectorAll('.feature-grid a');
+            featureLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href !== '#') {
+                        window.open(href, '_blank');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
